@@ -1,12 +1,13 @@
-package org.example.board;
+package org.example.board.peices;
 
 import org.example.bank.Bank;
+import org.example.board.BoardPiece;
 import org.example.common.Constants;
 import org.example.player.Player;
 import org.example.player.Property;
 
-import static org.example.board.HotelClass.Gold;
-import static org.example.board.HotelClass.Platinum;
+import static org.example.board.peices.HotelClass.Gold;
+import static org.example.board.peices.HotelClass.Platinum;
 
 public class Hotel implements BoardPiece, Property {
     private Player owner;
@@ -15,7 +16,7 @@ public class Hotel implements BoardPiece, Property {
     @Override
     public void action(Player player, Bank bank) {
         if (owner == null) {
-            setOwner(player);
+            setOwner(player,bank);
         } else if (player.getId().equals(owner.getId())) {
             upgrade(bank);
         } else {
@@ -23,9 +24,11 @@ public class Hotel implements BoardPiece, Property {
         }
     }
 
-    private void setOwner(Player player) {
+    private void setOwner(Player player,Bank bank) {
         this.owner = player;
         this.owner.addProperty(this);
+        player.setCurrentAmount(player.getCurrentAmount()-Constants.silverHotelValue);
+        bank.depositAmount(Constants.silverHotelValue);
         status = HotelClass.Silver;
     }
 

@@ -1,9 +1,10 @@
-package org.example.board;
+package org.example.board.peices;
 
 import org.example.bank.Bank;
+import org.example.board.BoardPiece;
 import org.example.player.Player;
 
-public class EmptyCell implements BoardPiece{
+public class EmptyCell implements BoardPiece {
 
     @Override
     public void action(Player player, Bank bank){

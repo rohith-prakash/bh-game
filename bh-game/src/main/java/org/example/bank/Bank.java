@@ -1,9 +1,12 @@
 package org.example.bank;
 
+import org.example.common.Constants;
+
 public class Bank {
     private static Bank instance;
 
     private Bank() {
+        totalAmount = Constants.bankInitialAmount;
     }
 
     private int totalAmount;

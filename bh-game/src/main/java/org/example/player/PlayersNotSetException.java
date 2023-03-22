@@ -1,4 +1,4 @@
-package org.example.board;
+package org.example.player;
 
 public class PlayersNotSetException extends RuntimeException{
     public PlayersNotSetException(String message){

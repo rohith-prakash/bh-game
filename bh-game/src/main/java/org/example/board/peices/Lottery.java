@@ -1,6 +1,7 @@
-package org.example.board;
+package org.example.board.peices;
 
 import org.example.bank.Bank;
+import org.example.board.BoardPiece;
 import org.example.common.Constants;
 import org.example.player.Player;
 
