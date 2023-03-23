@@ -7,11 +7,11 @@ import org.example.player.Player;
 public class EmptyCell implements BoardPiece {
 
     @Override
-    public void action(Player player, Bank bank){
+    public void action(Player player, Bank bank) {
 
     }
 
-    public String toString(){
+    public String toString() {
         return "E";
     }
 }

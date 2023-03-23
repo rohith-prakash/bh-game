@@ -1,4 +1,4 @@
 package org.example.player;
 
-public class InvalidPlayerAmountException extends RuntimeException{
+public class InvalidPlayerAmountException extends RuntimeException {
 }

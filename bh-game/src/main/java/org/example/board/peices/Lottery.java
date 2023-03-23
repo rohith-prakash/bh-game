@@ -10,19 +10,20 @@ public class Lottery implements BoardPiece {
 
     private boolean completed;
 
-    public Lottery(){
+    public Lottery() {
         completed = false;
     }
 
     @Override
     public void action(Player player, Bank bank) {
-        if(!completed){
+        if (!completed) {
             completed = true;
             bank.takeLoan(prizeAmount);
             player.setCurrentAmount(player.getCurrentAmount() + prizeAmount);
         }
     }
-    public String toString(){
+
+    public String toString() {
         return "L";
     }
 }

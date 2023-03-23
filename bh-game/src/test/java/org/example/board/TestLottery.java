@@ -6,26 +6,28 @@ import org.example.common.Constants;
 import org.example.player.DummyPlayer;
 import org.example.player.Player;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TestLottery {
     @Test
-    public void test(){
+    public void test() {
         Player player = new DummyPlayer();
         Player player2 = new DummyPlayer();
         BoardPiece lottery = new Lottery();
         Bank bank = Bank.getInstance();
 
-        assertEquals(Constants.playerInitialAmount,player.getCurrentAmount());
-        assertEquals(Constants.bankInitialAmount,bank.getAmount());
+        assertEquals(Constants.playerInitialAmount, player.getCurrentAmount());
+        assertEquals(Constants.bankInitialAmount, bank.getAmount());
 
-        lottery.action(player,bank);
-        assertEquals(Constants.bankInitialAmount-Constants.lotteryPrizeAmount,bank.getAmount());
-        assertEquals(Constants.playerInitialAmount+Constants.lotteryPrizeAmount,player.getCurrentAmount());
+        lottery.action(player, bank);
+        assertEquals(Constants.bankInitialAmount - Constants.lotteryPrizeAmount, bank.getAmount());
+        assertEquals(Constants.playerInitialAmount + Constants.lotteryPrizeAmount, player.getCurrentAmount());
 
-        assertEquals(Constants.playerInitialAmount,player2.getCurrentAmount());
+        assertEquals(Constants.playerInitialAmount, player2.getCurrentAmount());
         int bankAmount = bank.getAmount();
-        lottery.action(player2,bank);
-        assertEquals(bankAmount,bank.getAmount());
-        assertEquals(Constants.playerInitialAmount,player2.getCurrentAmount());
+        lottery.action(player2, bank);
+        assertEquals(bankAmount, bank.getAmount());
+        assertEquals(Constants.playerInitialAmount, player2.getCurrentAmount());
     }
 }

@@ -42,4 +42,9 @@ public class DummyPlayer implements Player{
     public int getMoneyFromProperty(){
         return properties.stream().map(property -> property.getTotalValue()).mapToInt(Integer::intValue).sum();
     }
+
+    @Override
+    public void printAssets(int index){
+        System.out.println("The Player " + index + " has amount " + getCurrentAmount() + " and " + properties.size() + " worth " + getMoneyFromProperty());
+    }
 }

@@ -16,7 +16,7 @@ public class Hotel implements BoardPiece, Property {
     @Override
     public void action(Player player, Bank bank) {
         if (owner == null) {
-            setOwner(player,bank);
+            setOwner(player, bank);
         } else if (player.getId().equals(owner.getId())) {
             upgrade(bank);
         } else {
@@ -24,10 +24,10 @@ public class Hotel implements BoardPiece, Property {
         }
     }
 
-    private void setOwner(Player player,Bank bank) {
+    private void setOwner(Player player, Bank bank) {
         this.owner = player;
         this.owner.addProperty(this);
-        player.setCurrentAmount(player.getCurrentAmount()-Constants.silverHotelValue);
+        player.setCurrentAmount(player.getCurrentAmount() - Constants.silverHotelValue);
         bank.depositAmount(Constants.silverHotelValue);
         status = HotelClass.Silver;
     }
@@ -80,15 +80,18 @@ public class Hotel implements BoardPiece, Property {
     }
 
     @Override
-    public int getTotalValue(){
-        switch(status){
-            case Gold: return Constants.goldHotelValue;
-            case Platinum:return Constants.platinumHotelValue;
-            default: return Constants.silverHotelValue;
+    public int getTotalValue() {
+        switch (status) {
+            case Gold:
+                return Constants.goldHotelValue;
+            case Platinum:
+                return Constants.platinumHotelValue;
+            default:
+                return Constants.silverHotelValue;
         }
     }
 
-    public String toString(){
+    public String toString() {
         return "H";
     }
 }

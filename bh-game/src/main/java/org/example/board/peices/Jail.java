@@ -14,7 +14,7 @@ public class Jail implements BoardPiece {
         bank.depositAmount(fineAmount);
     }
 
-    public String toString(){
+    public String toString() {
         return "J";
     }
 

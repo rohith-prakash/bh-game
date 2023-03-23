@@ -3,9 +3,10 @@ package org.example.dice;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DummyDice implements Dice{
+public class DummyDice implements Dice {
     private Queue circularQueue = new LinkedList<Integer>();
-    public DummyDice(){
+
+    public DummyDice() {
         circularQueue.add(2);
         circularQueue.add(2);
         circularQueue.add(1);
@@ -31,7 +32,7 @@ public class DummyDice implements Dice{
 
     @Override
     public int getNum() {
-        int value = (int)circularQueue.peek();
+        int value = (int) circularQueue.peek();
         circularQueue.remove();
         circularQueue.add(value);
         return value;
